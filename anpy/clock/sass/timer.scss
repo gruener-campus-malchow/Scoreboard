@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+/* ======================
+   Variables and mixins
+   ======================= */
+@import "bourbon";
+
+@mixin border-radius($radius) {
+  @include border-top-radius($radius);
+  @include border-right-radius($radius);
+  @include border-bottom-radius($radius);
+  @include border-left-radius($radius);
+}
+
+/* ======================
+   Timer Module
+   ======================= */
+
+$timer-size: 100px;
+
+$timer-border: 6px;
+$timer-border-color-base: #BDBDBD;
+$timer-border-color-regular: #66BB6A;
+$timer-border-color-warning: #E57373;
+
+$timer-color-regular: inherit;
+$timer-color-warning: #E53935;
+
+.timer {
+  height: $timer-size;
+
+  &.full {
+
+    .timer-half.right,
+    .timer-half.left {
+      border: $timer-border solid $timer-border-color-regular;
+      @include transform(rotate(180deg));
+    }
+
+    &.negative {
+
+      .timer-bg {
+        color: $timer-color-warning;
+      }
+
+      .timer-half.right,
+      .timer-half.left {
+        border: $timer-border solid $timer-border-color-warning;
+      }
+
+    }
+
+  }
+
+  .timer-bg,
+  .timer-half-container,
+  .timer-half,
+  {
+    position: absolute;
+    width: $timer-size;
+    height: $timer-size;
+    @include border-radius($timer-size/2);
+  }
+
+  .timer-bg {
+    border: $timer-border solid $timer-border-color-base;
+
+    // styling for displaying minutes as text
+    text-align: center;
+    line-height: $timer-size - 2*$timer-border;
+    vertical-align: baseline;
+    font-size: 1.5em;
+
+    small {
+      font-size: 0.5em;
+    }
+
+  }
+
+  .timer-half-container {
+    clip: rect(0px, $timer-size, $timer-size, $timer-size/2);
+
+    .timer-half {
+      clip: rect(0px, $timer-size/2, $timer-size, 0px);
+    }
+
+    &.left {
+      @include transform(rotate(180deg));
+    }
+
+  }
+
+}
+
+@for $minute from 1 through 30 {
+
+  $deg: (360/60 * $minute);
+
+  // positive minutes
+  .timer[data-duration="#{$minute}"] {
+
+    .timer-half.right {
+
+      @include transform(rotate(#{$deg}deg));
+
+      @if $minute < 15 {
+        border: $timer-border solid $timer-border-color-warning;
+      } @else {
+        border: $timer-border solid $timer-border-color-regular;
+      }
+
+    }
+
+  }
+
+  // negative minutes
+  .timer[data-duration="-#{$minute}"] {
+
+    .timer-bg {
+      color: $timer-color-warning;
+    }
+
+    .timer-half.left {
+      @include transform(rotate(-#{$deg}deg));
+      border: $timer-border solid $timer-border-color-warning;
+    }
+
+  }
+
+}
+
+@for $minute from 31 through 60 {
+
+  $deg: (360/60 * ($minute - 30));
+
+  // positive minutes
+  .timer[data-duration="#{$minute}"] {
+
+    // right half must be filled completely for minutes > 30
+    .timer-half.right {
+      border: $timer-border solid $timer-border-color-regular;
+      @include transform(rotate(180deg));
+    }
+
+    // left half must be filled prorata temporis
+    .timer-half.left {
+      border: $timer-border solid $timer-border-color-regular;
+      @include transform(rotate(#{$deg}deg));
+    }
+
+  }
+
+  // negative minutes
+  .timer[data-duration="-#{$minute}"] {
+
+    .timer-bg {
+      color: $timer-color-warning;
+    }
+
+    // right half must be filled prorata temporis
+    .timer-half.right {
+      border: $timer-border solid $timer-border-color-warning;
+      @include transform(rotate(-#{$deg}deg));
+    }
+
+    // left half must be filled completely for minutes < -30
+    .timer-half.left {
+      border: $timer-border solid $timer-border-color-warning;
+      @include transform(rotate(-180deg));
+    }
+
+  }
+
+}

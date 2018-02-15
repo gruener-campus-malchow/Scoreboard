@@ -1,0 +1,22 @@
+var singularVar = {
+	'time':70,
+	'fight':[
+		{
+			'name':'Fighter #1',
+			'icon':'logo1.png',
+			'score':0
+		},
+		{
+			'name':'Fighter #2',
+			'icon':'logo2.png',
+			'score':0
+		}
+	],
+	'sponsors':[
+		{
+			0:'LéJúl',
+			1:'Levan',
+			2:'cityOS'
+		}
+	]
+}

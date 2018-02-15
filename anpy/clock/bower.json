@@ -1,0 +1,38 @@
+{
+  "name": "jquery-timer-plugin",
+  "version": "0.2.0",
+  "description": "Countdown timers jQuery plugin. Time to be countdown can be provided either in minutes or in seconds.",
+  "author": "Aljona Murygina <murygina@synyx.de>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/murygina/jquery-timer-plugin"
+  },
+  "main": [
+    "sass/timer.scss",
+    "css/timer.css",
+    "css/timer.css.map",
+    "js/timer.js"
+  ],
+  "ignore": [
+    "**/.*",
+    ".jshintrc",
+    "node_modules",
+    "bower_components",
+    ".sass-cache",
+    "README.md",
+    "Gruntfile.js",
+    "sass/style.scss",
+    "css/style.css",
+    "css/style.css.map"
+  ],
+  "dependencies": {
+    "bourbon": "~4.0.2",
+    "jquery": "~2.1.1"
+  },
+  "devDependencies": {
+    "base": "~1.8.5",
+    "reset-scss": "*",
+    "css-smart-grid": "~5.1.3",
+    "google-code-prettify": "~1.0.4"
+  }
+}

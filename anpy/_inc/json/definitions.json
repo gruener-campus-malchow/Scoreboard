@@ -1,0 +1,6 @@
+var definitionsVar = {
+	'logo':'defaultLogo.svg',
+	'tagline':'Have a nice page!',
+	'time':'240',
+	'password':''
+}

@@ -1,0 +1,120 @@
+body
+{
+	font-size: 1.4em;
+	/*font-family: Roboto, sans-serif;*/
+	/*overflow: hidden;*/
+	background-color:black;
+}
+div.table{
+	display: table;
+	width: 100%;
+	background-color: black;
+	/*border: 2px solid red;*/
+	border-radius: 10px;
+	margin:0 auto;
+	border-spacing: 5px;
+
+}
+div.row {
+	display: table-row;
+	border-bottom: 30px solid yellow;
+}
+div.cell {
+	display: table-cell;
+}
+span.history {
+	margin-left:2px;
+	padding: 2px;
+	color: white;
+}
+.points {
+	text-align: center;
+	font-size: 10em;
+	text-shadow: 10px 10px 5px black;
+	color: white;
+}
+.warntime {
+	text-align: center;
+	font-size: 4em;
+	text-shadow: 5px 5px 5px black;
+	color: white;
+}
+.pointfield {
+	/*border: 5px solid white;*/
+	border-radius: 10px;
+/*	float: left;*/
+	display: table-cell;
+/*	margin: 5px auto;*/
+	width:50%;
+	text-align: center;
+}
+.red{
+	background-color: red;
+}
+.blue {
+	background-color: blue;
+}
+
+.black {
+	background-color: black;
+}
+
+.yellow {
+	border-radius: 10px;
+	background-color: yellow;
+}
+
+
+button {
+    /*background-color: #4CAF50; Green */
+    border: none;
+    color: black;
+    background-color:white;
+    /*padding: 15px 32px;*/
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid black;
+	 border-radius: 10px;
+	 width:200px;
+	 height:40px;
+}
+.button {
+
+    color: white;
+	 width:60px;
+}
+.longbutton {
+    color: white;
+	 width:160px;
+}
+
+.timer{
+
+	border-radius: 10px;
+	font-size: 5em; 
+	display: table-cell;
+	text-align: center;
+	background-color: white;
+	width: 100%;
+}
+
+.hist{
+	border-radius: 10px;
+	display: table-cell;
+	background-color: white;
+	padding: 5px;
+	width: 100%;
+}
+
+.pause_text{
+	font-size: 50%; 
+	margin-left: 5px;
+}
+
+.reset{
+	margin-left: 100px;
+}
+
