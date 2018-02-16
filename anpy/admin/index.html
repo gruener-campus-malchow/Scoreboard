@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Administrational Access</title>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<link rel="stylesheet" href="../_inc/css/style.css" type="text/css" media="all">
+	</head>
+
+	<body>
+
+		<div class="theButtonsContainer">
+		
+			<div class="row singleButton">
+				<div class="twelve columns">
+					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">1</span>
+				</div>
+			</div>
+			<div class="row singleButton">
+				<div class="twelve columns">
+					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">2</span>
+				</div>
+			</div>
+			<div class="row singleButton">
+				<div class="twelve columns">
+					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">4</span>
+				</div>
+			</div>
+			<div class="row singleButton">
+				<div class="twelve columns">
+					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">5</span>
+				</div>
+			</div>
+			<div class="row lastButtons">
+				<div class="six columns">
+					<span class="simpleButtonText">Verwarnung</span>
+				</div>
+				<div class="six columns">
+					<span class="simpleButtonText">+/-</span>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="../_inc/js/jquery-3.3.1.min.js"></script>
+		<script>
+			var pageHeight = $('html').height();
+			console.log(pageHeight);
+			var singleHeight = ((pageHeight / 5) - 4);
+			$('.theButtonsContainer .row').each(function(){
+				$(this).height(singleHeight + 'px');
+				$(this).css('line-height',singleHeight + 'px');
+			});
+		</script>
+
+	</body>
+
+</html>

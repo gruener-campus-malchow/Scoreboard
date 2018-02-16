@@ -1,5 +1,5 @@
 var singularVar = {
-	'time':70,
+	'time':10,
 	'fight':[
 		{
 			'name':'Fighter #1',
