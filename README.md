@@ -54,3 +54,9 @@ http://127.0.0.1:8000/admin/
 
 https://www.techiediaries.com/create-react-app-django/
 
+REST Framework:
+```
+> pip3 install djangorestframework
+```
+
+http://www.django-rest-framework.org/tutorial/quickstart/
