@@ -32,7 +32,6 @@ Set up Django:
 > django-admin startproject Scoreboard
 > python3 manage.py startapp board
 > python3 manage.py runserver
-> 
 ```
 Für Datenbanken:
 ```
