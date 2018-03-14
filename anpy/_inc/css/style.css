@@ -84,3 +84,6 @@
 .theButtonsContainer .lastButtons .six:first-child {
 	border-right: 1px solid #000;
 }
+.theButtonsContainer .row div:hover {
+	cursor: pointer;
+}

@@ -13,30 +13,30 @@
 		<div class="theButtonsContainer">
 		
 			<div class="row singleButton">
-				<div class="twelve columns">
+				<div class="twelve columns" data-value="1">
 					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">1</span>
 				</div>
 			</div>
 			<div class="row singleButton">
-				<div class="twelve columns">
+				<div class="twelve columns" data-value="2">
 					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">2</span>
 				</div>
 			</div>
 			<div class="row singleButton">
-				<div class="twelve columns">
+				<div class="twelve columns" data-value="4">
 					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">4</span>
 				</div>
 			</div>
 			<div class="row singleButton">
-				<div class="twelve columns">
+				<div class="twelve columns" data-value="5">
 					<span class="theCurrentProtocol">+</span><span class="theCurrentNumber">5</span>
 				</div>
 			</div>
 			<div class="row lastButtons">
-				<div class="six columns">
+				<div class="six columns" data-value="v">
 					<span class="simpleButtonText">Verwarnung</span>
 				</div>
-				<div class="six columns">
+				<div class="six columns" data-value="p">
 					<span class="simpleButtonText">+/-</span>
 				</div>
 			</div>
@@ -45,13 +45,48 @@
 
 		<script src="../_inc/js/jquery-3.3.1.min.js"></script>
 		<script>
+			var theCurrentStatus = '+';
 			var pageHeight = $('html').height();
-			console.log(pageHeight);
 			var singleHeight = ((pageHeight / 5) - 4);
 			$('.theButtonsContainer .row').each(function(){
 				$(this).height(singleHeight + 'px');
 				$(this).css('line-height',singleHeight + 'px');
 			});
+			
+			$(document).on('click','.theButtonsContainer .row div',function(e){
+				e.preventDefault();
+
+				var theValueOfClick = $(this).attr('data-value');
+				
+				if(isNaN(theValueOfClick)){
+					if(theValueOfClick == 'v'){
+						sendDataToPython('v','note',0);
+					}else{
+						if(theCurrentStatus == '+'){
+							theCurrentStatus = '-';
+						}else{
+							theCurrentStatus = '+';
+						}
+						$('.theCurrentProtocol').html(theCurrentStatus);
+					}
+				}else{
+					theValueOfClick = parseInt(theValueOfClick);
+
+					sendDataToPython(theValueOfClick,'score',0,theCurrentStatus);
+				}
+			});
+
+			function sendDataToPython(data,type,player,before = ''){
+				$.ajax({
+					type: 'POST',
+					url: 'post.py',
+					data: {'data':data,'type':type,'player':player,'before':before},
+					context: this,
+					success: function(answer){
+						console.log(answer);
+					}
+				});
+			}
 		</script>
 
 	</body>
